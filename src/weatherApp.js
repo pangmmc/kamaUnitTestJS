@@ -17,7 +17,7 @@ app.factory('weatherService', function () {
 });
 
 
-app.controller('weatherController', function ($scope, $http, weatherService) {
+app.controller('weatherController', '$scope', '$http', function ($scope, $http, weatherService) {
 
     $scope.cities = weatherService.getWeathers();
 
@@ -29,6 +29,16 @@ app.controller('weatherController', function ($scope, $http, weatherService) {
         var cityIndex = $scope.cityNames.indexOf(cityName.toLowerCase());
         var city = $scope.cities[cityIndex];
         return city;
+    };
+
+    $scope.checkCallService = function () {
+        var check = $scope.getData();
+
+        if(check == "true")
+            return pong;
+        else
+            return pang;
+
     };
 
     $scope.getData = function () {
