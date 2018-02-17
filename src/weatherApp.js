@@ -16,8 +16,7 @@ app.factory('weatherService', function () {
     return service;
 });
 
-
-app.controller('weatherController', '$scope', '$http', function ($scope, $http, weatherService) {
+app.controller('weatherController', function ($scope, $http, weatherService) {
 
     $scope.cities = weatherService.getWeathers();
 
@@ -31,18 +30,5 @@ app.controller('weatherController', '$scope', '$http', function ($scope, $http, 
         return city;
     };
 
-    $scope.checkCallService = function () {
-        var check = $scope.getData();
-
-        if(check == "true")
-            return pong;
-        else
-            return pang;
-
-    };
-
-    $scope.getData = function () {
-        return  $http.get("http://mnp.local/kamaUnitTestJS/service.php").then(function(response) {});
-    };
 
  });

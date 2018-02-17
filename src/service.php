@@ -1,5 +1,5 @@
 <?php
 
-    echo "true";
+    echo '{"id":"1", "name":"Pong Pang"}';
 
 ?>
