@@ -1,5 +1,6 @@
 describe('การทดสอบไฟล์ JS StartAngular', function () {
 
+    var controllerService = null;
     var startAngularController = null;
     var scope = {};
     var http = {};
@@ -12,12 +13,12 @@ describe('การทดสอบไฟล์ JS StartAngular', function () {
         startAngularController = controllerService('startAngularCtrl', {$scope: scope, $http : http});
     });
 
-    // it('เมื่อเรียกฟังก์ชั่น init() ค่าของ firstName ต้องเท่ากับ Pong Pang', function () {
+    it('เมื่อ id == 1 ต้อง Return Pong Pang', function () {
+        expect(scope.test(1)).toBe("Pong Pang");
+    });
 
-    //     startAngularController.getData();
-
-    //     expect().toBe("Pong Pang");
-    // });
-
+    it('เมื่อ id != 1 ต้อง Return Mint', function () {
+        expect(scope.test(2)).toBe("Mint");
+    });
 
 });
