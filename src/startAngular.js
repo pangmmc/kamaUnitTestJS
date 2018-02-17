@@ -1,14 +1,22 @@
-// var app = angular.module("myApp", []);
+var app = angular.module("startAngularApp", []);
 
-// app.controller("myCtrl", function($scope, $http) {
+app.controller("startAngularCtrl", function($scope, $http) {
 
-//     $scope.getData = function(){
-//         return $http.get("service.php", {});
-//     }
+    $scope.init = function(){
+        $scope.getData();
+    }
 
-//     var pppp = $scope.getData().then(function(res){
-//         $scope.firstName = res.data.name;
-//     });
+    $scope.callAPIData = function(){
+        return $http.get("service.php", {});
+    }
 
+    $scope.getData = function(){
+        $scope.callAPIData().then(getSuccess);
+    }
 
-// });
+    function getSuccess(res){
+        $scope.firstName = res.data.name;
+        console.log(res.data.name)
+    }
+
+});
